@@ -13,16 +13,22 @@ public class HttpServer {
         dispatcher = new Dispatcher();
     }
 
-    public void start(){
-        try (ServerSocket serverSocket = new ServerSocket(port)){
-            while (true){
+    public void start() {
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
+            while (true) {
                 Socket socket = serverSocket.accept();
                 byte[] buffer = new byte[8192];
                 int n = socket.getInputStream().read(buffer);
                 String rawRequest = new String(buffer, 0, n);
-                HttpRequest request = new HttpRequest(rawRequest);
-                request.info(true);
-                dispatcher.execute(request, socket.getOutputStream());
+                new Thread(() -> {
+                    HttpRequest request = new HttpRequest(rawRequest);
+                    request.info(true);
+                    try {
+                        dispatcher.execute(request, socket.getOutputStream());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).start();
             }
         } catch (IOException e) {
             e.printStackTrace();
