@@ -1,7 +1,9 @@
-package ru.otus.java.safarov.homework23;
+package ru.otus.java.safarov.homework24;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static ru.otus.java.safarov.homework24.Main.logger;
 
 public class HttpRequest {
     private String rawRequest;
@@ -34,11 +36,12 @@ public class HttpRequest {
 
     public void info(boolean debug) {
         if (debug){
-            System.out.println(rawRequest);
+            logger.info(rawRequest);
         }
-        System.out.println("Method: " + method);
-        System.out.println("URI: " + uri);
-        System.out.println("Parameters: " + parameters);
+        logger.info("Method: " + method);
+        logger.info("Method: " + method);
+        logger.info("URI: " + uri);
+        logger.info("Parameters: " + parameters);
     }
 
     public String getUri() {
