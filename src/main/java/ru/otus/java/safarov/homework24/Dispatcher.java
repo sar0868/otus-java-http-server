@@ -1,11 +1,13 @@
-package ru.otus.java.safarov.homework23;
+package ru.otus.java.safarov.homework24;
 
-import ru.otus.java.safarov.homework23.processors.*;
+import ru.otus.java.safarov.homework24.processors.*;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import static ru.otus.java.safarov.homework24.Main.logger;
 
 public class Dispatcher {
     private Map<String, RequestProcessor> processors;
@@ -33,7 +35,7 @@ public class Dispatcher {
             defaultBadRequestProcessor.execute(request, output);
 
         } catch (Exception e){
-            e.printStackTrace();
+            logger.error(e.getMessage());
             defaultInternalServerErrorProcessor.execute(request, output);
         }
     }
