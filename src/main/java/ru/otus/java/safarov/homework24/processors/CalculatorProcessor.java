@@ -1,7 +1,7 @@
-package ru.otus.java.safarov.homework23.processors;
+package ru.otus.java.safarov.homework24.processors;
 
-import ru.otus.java.safarov.homework23.BadRequestException;
-import ru.otus.java.safarov.homework23.HttpRequest;
+import ru.otus.java.safarov.homework24.BadRequestException;
+import ru.otus.java.safarov.homework24.HttpRequest;
 
 import java.io.IOException;
 import java.io.OutputStream;
