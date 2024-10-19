@@ -26,4 +26,4 @@ completed: 14.10.2024
 
 deadline: 17.10.2024   
 start: 17.10.2024   
-completed:  
+completed: 19.10.2024   

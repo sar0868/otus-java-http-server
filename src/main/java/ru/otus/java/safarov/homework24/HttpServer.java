@@ -13,7 +13,7 @@ import static ru.otus.java.safarov.homework24.Main.logger;
 public class HttpServer {
     private final int port;
     private Dispatcher dispatcher;
-    ExecutorService executor;
+    private ExecutorService executor;
 
     public HttpServer(int port) {
         this.port = port;

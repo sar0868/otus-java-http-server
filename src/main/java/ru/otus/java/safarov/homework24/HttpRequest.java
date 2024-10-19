@@ -47,7 +47,7 @@ public class HttpRequest {
 
     public void info(boolean debug) {
         if (debug){
-            logger.info(rawRequest);
+            logger.debug(rawRequest);
         }
         logger.info("Method: " + method);
         logger.info("URI: " + uri);
